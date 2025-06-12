@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -25,6 +25,7 @@ const socialLinks = [
 const HeroBanner = () => {
   const pointerRef = useRef(null);
   const { x, y } = useFollowPointer(pointerRef);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <section
@@ -42,13 +43,14 @@ const HeroBanner = () => {
       <span className="md:hidden sec-1-bg-gradient-2-mobile absolute w-[636px] h-[635px] -left-[334px] top-[672px]" />
 
       <Wrapper>
-        {/* Navbar */}
+        {/* Navbar responsive */}
         <motion.nav
-          className="hidden md:flex items-center justify-between mt-[15px] relative"
+          className="flex items-center justify-between mt-[15px] relative"
           initial={{ y: -200, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.25 }}
         >
+          {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="w-9 h-9 rounded-full flex justify-center items-center bg-white">
               <img src={logoIcon} alt="logo" className="w-4" />
@@ -56,7 +58,8 @@ const HeroBanner = () => {
             <span className="font-semibold">Chaimaa Said</span>
           </div>
 
-          <ul className="flex 2xl:text-lg">
+          {/* Menu desktop */}
+          <ul className="hidden md:flex 2xl:text-lg">
             {navLinks.map(({ label, section }) => (
               <li
                 key={section}
@@ -67,7 +70,33 @@ const HeroBanner = () => {
               </li>
             ))}
           </ul>
+
+          {/* Bouton hamburger mobile */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden text-2xl"
+          >
+            <i className="fas fa-bars" />
+          </button>
         </motion.nav>
+
+        {/* Menu mobile déroulant */}
+        {menuOpen && (
+          <ul className="md:hidden mt-4 space-y-3 bg-[#222] p-4 rounded-lg shadow-lg">
+            {navLinks.map(({ label, section }) => (
+              <li
+                key={section}
+                onClick={() => {
+                  scrollTo(section);
+                  setMenuOpen(false); // Ferme le menu après clic
+                }}
+                className="cursor-pointer px-4 py-2 hover:bg-slate-800 rounded transition"
+              >
+                {label}
+              </li>
+            ))}
+          </ul>
+        )}
 
         {/* Main Content */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 mt-8 px-4 h-[calc(100vh-100px)] max-w-7xl mx-auto">
