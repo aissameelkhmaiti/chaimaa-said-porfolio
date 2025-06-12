@@ -71,62 +71,50 @@ const Skills = () => {
                     <div className="md:max-w-[65%] flex flex-col gap-6 md:gap-10">
                         <Service
                             num="1"
-                            title="Full Stack Web Development"
-                            desc="As a MERN and Java/Spring Boot developer, I design modern and scalable web applications with responsive interfaces and secure backends. I focus on building dynamic dashboards, e-commerce platforms, and efficient ERP systems."
+                            title="Développement Web Full Stack"
+                            desc="Création de plateformes web robustes en Java/Spring Boot et MERN. J’ai contribué à des projets e-commerce, ERP et de gestion budgétaire, avec une attention particulière sur l’expérience utilisateur et la sécurité."
                             data={[
-                                "MERN Stack (MongoDB, Express, React, Node)",
-                                "Spring Boot / Spring Security",
-                                "Responsive UI with Tailwind & Bootstrap",
+                                "Java / Spring Boot / Spring Security",
+                                "MERN (MongoDB, Express, React, Node.js)",
+                                "TailwindCSS / Bootstrap",
                                 "MySQL & MongoDB",
-                                "Chart.js & Data Visualisation",
+                                "Chart.js pour la visualisation des données",
                             ]}
                         />
                         <Service
                             num="2"
-                            title="Mobile App Development"
-                            desc="Experienced in Android development using Java and Kotlin with MVVM architecture. I build robust mobile apps with REST API integration and real-time features like location and maps."
+                            title="Développement Mobile Android"
+                            desc="Développement d'applications Android pour la gestion des absences à l’EMSI avec Spring Boot côté backend. Intégration d’APIs, Firebase, géolocalisation et architecture MVVM."
                             data={[
-                                "Java / Kotlin",
-                                "MVVM Architecture",
-                                "Google Maps API",
-                                "REST API Integration",
+                                "Java / Kotlin / Android Studio",
                                 "Firebase (Auth, Firestore, Storage)",
+                                "Google Maps API",
+                                "Architecture MVVM",
+                                "Spring Boot REST API",
                             ]}
                         />
                         <Service
                             num="3"
-                            title="Software Engineering"
-                            desc="Trained in robust engineering principles including multi-threading, test-driven development, and design patterns. I transform business requirements into optimized and maintainable codebases."
+                            title="Projets académiques & collaboratifs"
+                            desc="Développement d’une plateforme de streaming, projet de fin d’année EMSI. Travail en équipe agile (Scrum) et intégration d’IA avec Gemini et Firebase."
                             data={[
-                                "JavaEE / MVC Architecture",
-                                "JUnit Testing",
-                                "Design Patterns",
-                                "Clean Code Principles",
-                                "UML & Merise Modelling",
+                                "Java / Firebase / Google Maps API",
+                                "Gemini AI (LLM Integration)",
+                                "SCRUM / Agile",
+                                "CI/CD & GitHub",
+                                "UX-First Development",
                             ]}
                         />
                         <Service
                             num="4"
-                            title="Data Science & AI"
-                            desc="I analyze and visualize data, build regression models, and develop AI-based bots. My experience also includes operations research and optimization."
+                            title="Conception & Architecture Logicielle"
+                            desc="Conception d’architectures claires et évolutives avec UML et Merise. Intégration des bonnes pratiques (MVC, TDD, clean code) dans tous mes projets."
                             data={[
-                                "Data Analysis",
-                                "AI Bots & ML",
-                                "Regression Models",
-                                "Operations Research",
-                                "Data Visualization",
-                            ]}
-                        />
-                        <Service
-                            num="5"
-                            title="UI/UX & Design Thinking"
-                            desc="I deliver intuitive and user-friendly interfaces using wireframes, prototypes, and UX research. I aim to enhance user engagement through beautiful and accessible UI design."
-                            data={[
-                                "UI/UX Design",
-                                "Wireframes & Prototypes",
-                                "Human-Centered Design",
-                                "Figma / Adobe XD",
-                                "UX Research",
+                                "UML / Merise",
+                                "Architecture MVC",
+                                "JavaEE",
+                                "Tests unitaires avec JUnit",
+                                "Clean Code & Design Patterns",
                             ]}
                         />
                     </div>

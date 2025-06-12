@@ -17,9 +17,9 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { href: "https://www.linkedin.com/in/muhammad-rizwann/", icon: "linkedin" },
-  { href: "https://github.com/Rizwan0994/", icon: "github" },
-  { href: "https://twitter.com/midstain/", icon: "twitter" },
+  { href: "https://www.linkedin.com/in/ChaimaaSaid", icon: "linkedin" },
+  { href: "https://github.com/Chaimaa-SAID", icon: "github" },
+  { href: "https://www.instagram.com/chaimaa_said__/", icon: "instagram" },
 ];
 
 const HeroBanner = () => {

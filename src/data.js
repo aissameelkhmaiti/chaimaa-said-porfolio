@@ -6,83 +6,69 @@ import p5 from "./assets/oman.png";
 import p6 from "./assets/CS.png";
 
 export const filters = [
-    {
-        name: "All",
-        id: "all",
-    },
-    {
-        name: "Dashboard",
-        id: "dashboard",
-    },
-    {
-        name: "Mobile App",
-        id: "mobile-app",
-    },
-    {
-        name: "Website",
-        id: "website",
-    },
+  { name: "All", id: "all" },
+  { name: "Dashboard", id: "dashboard" },
+  { name: "Mobile App", id: "mobile-app" },
+  { name: "Website", id: "website" },
 ];
 
 export const projects = [
-    {
-        name: "ScrapHub - A digital platform for scrap buyers and sellers",
-        image: p1,
-        tags: ["dashboard", "website"],
-        codeLink: "https://github.com/Rizwan0994/ScrapHub.git",
-        // videoLink: "https://www.youtube.com/watch?v=8QZqX0ZxJZ8",
-    },
-    {
-        name: "Arabic Corpus- Manage and analyze Arabic text",
-        image: p2,
-        tags: ["dashboard"],
-        codeLink: "https://github.com/SoftwareConstructionAndDev/project-corpus-infinity0990.git",
-    },
-    {
-        name: "Data-Visulization-Infogrphics",
-        image: p3,
-        tags: ["all"],
-        codeLink: "https://github.com/Rizwan0994/Data-Visulization-Infogrphics.git",
-    },
-    {
-        name: "Final Year Project- We Are Solving Global Problems",
-        image: p4,
-        tags: ["mobile-app", "dashboard"],
-        codeLink: "https://github.com/Rizwan0994/ScrapHubApp.git",
-    },
-    {
-        name: "Oman Security system - Manage Daily Security Operations",
-        image: p5,
-        tags: ["website", "dashboard"],
-        codeLink: "https://github.com/Rizwan0994/OmanSecurity.git",
-    },
-    {
-        name: "Client Server-JAVA-JAVAFX",
-        image: p6,
-        tags: ["all"],
-        codeLink: "https://github.com/Rizwan0994/Client-Server-java-and-javaFX.git",
-    },
+  {
+    name: "Site e-commerce - Packaging personnalisé",
+    image: p1,
+    tags: ["website"],
+    codeLink: "https://github.com/chaimaasaid/ecommerce-packaging", // remplace par vrai lien
+  },
+  {
+    name: "Application Web - Suivi budgétaire BTP",
+    image: p2,
+    tags: ["dashboard", "website"],
+    codeLink: "https://github.com/chaimaasaid/budget-tracking-btp", // remplace par vrai lien
+  },
+  {
+    name: "Dashboard RH - Gestion des employés & congés",
+    image: p3,
+    tags: ["dashboard"],
+    codeLink: "https://github.com/chaimaasaid/dashboard-RH", // remplace si nécessaire
+  },
+  {
+    name: "Application mobile EMSI SmartPresence",
+    image: p4,
+    tags: ["mobile-app"],
+    codeLink: "https://github.com/chaimaasaid/emsi-smartpresence", // projet académique
+  },
+  {
+    name: "Plateforme de Streaming Virtuel (films & séries)",
+    image: p5,
+    tags: ["website", "dashboard"],
+    codeLink: "https://github.com/chaimaasaid/streaming-app", // projet ARK-X
+  },
+  {
+    name: "Client/Serveur - Java JavaFX (Gestion de données)",
+    image: p6,
+    tags: ["dashboard"],
+    codeLink: "https://github.com/chaimaasaid/client-serveur-javafx",
+  },
 ];
-
 export const achievements = [
-    {
-        id: 1,
-        year: 25,
-        description: "SUCCESSFULLY<br />COMPLETED<br />PROJECTS",
-    },
-    {
-        id: 2,
-        year: 2,
-        description: "YEARS OF<br />EXPERIENCE",
-    },
-    {
-        id: 3,
-        year: 20,
-        description: "TECHNOLOGIES",
-    },
-    {
-        id: 4,
-        year: 20,
-        description: "COMMUNITY<br />POSTS",
-    },
+  {
+    id: 1,
+    year: 6,
+    description: "PROJETS<br />RÉALISÉS",
+  },
+  {
+    id: 2,
+    year: 3,
+    description: "STAGES<br />EN ENTREPRISE",
+  },
+  {
+    id: 3,
+    year: 20,
+    description: "TECHNOLOGIES<br />MAÎTRISÉES",
+  },
+  {
+    id: 4,
+    year: 4,
+    description: "CERTIFICATIONS<br />ET FORMATIONS",
+  },
 ];

@@ -12,129 +12,98 @@ const Form = () => {
         e.preventDefault();
         setLoading(true);
 
-        // Below credentials are required to link your email id with contact form you can create your credentials in emailjs.com
         send(
-            "service_hcaazd7", // Service ID
-            "template_vkpuryk", // Template ID
+            "service_j99m6no",
+            "template_rw86dsu",
             userInput,
-            "lX8aC7zyj9whvAIzL" // Public Key - https://dashboard.emailjs.com/admin/account
+            "ohsnrgxXe6zuFMQV4"
         )
-            .then((response) => {
-                console.log("SUCCESS!", response.status, response.text);
-                formSuccess();
-                setLoading(false);
+            .then(() => {
+                toast.success("✅ Message sent successfully!");
+                document.getElementById("queryForm").reset();
+                setUserInput({});
             })
-            .catch((err) => {
-                console.log("FAILED...", err);
-                setLoading(false);
-            });
-    };
-
-    const formSuccess = () => {
-        toast(
-            "Thanks for submitting your Query, I will get back to you shortly."
-        );
-
-        // Resetting Form
-        document.getElementById("queryForm").reset();
+            .catch(() => {
+                toast.error("❌ Failed to send message. Please try again.");
+            })
+            .finally(() => setLoading(false));
     };
 
     const onChange = (e) => {
-        let obj = { ...userInput, [e.target.name]: e.target.value };
-        setUserInput(obj);
+        setUserInput({ ...userInput, [e.target.name]: e.target.value });
     };
 
     return (
-        <Div className="max-w-[1200px] mx-auto">
+        <Div className="relative max-w-[1200px] mx-auto px-4">
             <ToastContainer />
 
-            {/* LOADER START */}
+            {/* LOADER OVERLAY */}
             {loading && (
-                <div className="w-full h-full absolute bg-white/[.5] top-0 left-0 flex justify-center items-center">
-                    <svg className="spinner" viewBox="0 0 50 50">
-                        <circle
-                            className="path"
-                            cx="25"
-                            cy="25"
-                            r="20"
-                            fill="none"
-                            strokeWidth="5"
-                        ></circle>
-                    </svg>
+                <div className="absolute inset-0 bg-white/60 flex justify-center items-center z-10">
+                    <div className="w-10 h-10 border-4 border-gray-300 border-t-black rounded-full animate-spin"></div>
                 </div>
             )}
-            {/* LOADER START */}
 
             <form
                 id="queryForm"
-                className="flex flex-col gap-8"
+                className={`flex flex-col gap-8 ${loading ? "pointer-events-none opacity-60" : ""}`}
                 onSubmit={formSubmitHandler}
             >
-                {/* ROW START */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
-                    {/* NAME - FORM FIELD START */}
+                {/* Inputs */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="flex flex-col gap-2">
-                        <label
-                            htmlFor="from_name"
-                            className="text-[16px] text-black uppercase"
-                        >
-                            Your name<sup>*</sup>
+                        <label htmlFor="from_name" className="text-sm font-semibold text-gray-700">
+                            Your Name <sup className="text-red-500">*</sup>
                         </label>
                         <input
                             name="from_name"
                             type="text"
-                            className="h-[64px] bg-white outline-none border-none text-black px-4"
+                            placeholder="Enter your name"
+                            className="h-[52px] bg-black px-4 border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-black"
                             required
                             autoComplete="off"
                             onChange={onChange}
                         />
                     </div>
-                    {/* NAME - FORM FIELD END */}
 
-                    {/* EMAIL - FORM FIELD START */}
                     <div className="flex flex-col gap-2">
-                        <label
-                            htmlFor="from_email"
-                            className="text-[16px] text-black uppercase"
-                        >
-                            Your email<sup>*</sup>
+                        <label htmlFor="from_email" className="text-sm font-semibold text-gray-700">
+                            Your Email <sup className="text-red-500">*</sup>
                         </label>
                         <input
                             name="from_email"
                             type="email"
-                            className="h-[64px] bg-white outline-none border-none text-black px-4"
+                            placeholder="Enter your email"
+                            className="h-[52px] bg-black px-4 border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-black"
                             required
                             autoComplete="off"
                             onChange={onChange}
                         />
                     </div>
-                    {/* EMAIL - FORM FIELD END */}
                 </div>
-                {/* ROW END */}
 
-                {/* MESSAGE - FORM FIELD START */}
+                {/* Message */}
                 <div className="flex flex-col gap-2">
-                    <label
-                        htmlFor="message"
-                        className="text-[16px] text-black uppercase"
-                    >
-                        Please tell a bit about yourself & your project
-                        <sup>*</sup>
+                    <label htmlFor="message" className="text-sm font-semibold text-gray-700">
+                        Your Message <sup className="text-red-500">*</sup>
                     </label>
                     <textarea
                         name="message"
-                        className="h-[162px] bg-white outline-none border-none text-black p-4 resize-none"
+                        placeholder="Tell us a bit about your project..."
+                        className="h-[150px] bg-black p-4 border border-gray-300 rounded-md outline-none resize-none focus:ring-2 focus:ring-black"
                         required
                         onChange={onChange}
                     />
                 </div>
-                {/* MESSAGE - FORM FIELD END */}
 
-                {/* SUBMIT BUTTON */}
-                <button className="bg-[#111111] h-[64px] max-w-[585px] text-[16px] transition-transform active:scale-[0.95]">
-                    Send Contact Request Now
+                {/* Submit Button */}
+                <button
+                    type="submit"
+                    disabled={loading}
+                    className="bg-black text-white h-[52px] px-8 rounded-md font-medium hover:bg-gray-800 transition active:scale-95 disabled:opacity-50"
+                >
+                    {loading ? "Sending..." : "Send "}
                 </button>
-                {/* SUBMIT BUTTON */}
             </form>
         </Div>
     );
