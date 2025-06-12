@@ -2,68 +2,72 @@ import React from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 
 import Wrapper from "./Wrapper";
-import flag from "../assets/pk.png";
+import Div from "./Div";
+import profilePic from "../assets/chaimaa.jpg"; // Remplace par le bon chemin
 import pe1 from "../assets/sec-2-p-e-1.png";
 import pe2 from "../assets/sec-2-p-e-2.png";
-import Div from "./Div";
 
 const AboutMe = () => {
-    const { scrollY } = useScroll();
-    const y1 = useTransform(scrollY, [0, 500], [100, 0], { clamp: false });
-    const y2 = useTransform(scrollY, [0, 500], [0, -200], { clamp: false });
-    return (
-        <div
-            id="about"
-            className="w-full py-[50px] md:py-[100px] bg-white text-black relative overflow-hidden"
-        >
-            {/* BACKGROUND ELEMENTS START */}
-            <span className="sec-2-bg-gradient" />
-            <motion.img className="sec-2-p-e-1" style={{ y: y1 }} src={pe1} />
-            <motion.img className="sec-2-p-e-2" style={{ y: y2 }} src={pe2} />
-            {/* BACKGROUND ELEMENTS END */}
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [100, 0], { clamp: false });
+  const y2 = useTransform(scrollY, [0, 500], [0, -200], { clamp: false });
 
-            <Wrapper>
-                {/* HEADING START */}
-                <Div className="text-[40px] md:text-[90px] 2xl:text-[90px] leading-[52px] md:leading-[95px] 2xl:leading-[123px] font-oswald uppercase mb-[25px] md:mb-[40px] 2xl:mb-[60px] flex flex-col relative">
-                    <span>A software developer</span>
-                    <span className="flex items-center gap-2">
-                        <span>Based</span>
-                        <img
-                            src={flag}
-                            alt=""
-                            className="w-[70px] md:w-[150px] 2xl:w-[190px] block mt-1 md:mt-2"
-                        />
-                        <span>In Pakistan</span>
-                    </span>
-                </Div>
-                {/* HEADING END */}
+  return (
+    <div
+      id="about"
+      className="w-full py-[50px] md:py-[100px] bg-white text-black relative overflow-hidden"
+    >
+      {/* BACKGROUND ELEMENTS */}
+      <span className="sec-2-bg-gradient" />
+      <motion.img className="sec-2-p-e-1" style={{ y: y1 }} src={pe1} />
+      <motion.img className="sec-2-p-e-2" style={{ y: y2 }} src={pe2} />
 
-                {/* PARAGRAPH START */}
-                <Div className="max-w-[759px] 2xl:max-w-[959px] text-[16px] 2xl:text-[20px] leading-[24px] 2xl:leading-[32px] mb-[20px] md:mb-[30px] 2xl:mb-[50px] relative">
-                My journey as a software engineer started during my college years, 
-                where I discovered my love for problem-solving and coding. 
-                Since then, I have embarked on various exciting projects that
-                 have allowed me to grow both technically and personally.
+      <Wrapper>
+        <div className="flex flex-col md:flex-row gap-10 items-center">
+          {/* LEFT TEXT SIDE */}
+          <div className="flex-1">
+            <Div className="text-[40px] md:text-[60px] font-oswald uppercase mb-10">
+              <span className="block text-[20px] md:text-[28px] normal-case mt-2">
+                Full Stack Developer – MERN & Java/Spring
+              </span>
+            </Div>
 
+            <Div className="max-w-[700px] text-[16px] md:text-[18px] leading-[28px] mb-6">
+              I'm currently a 4th year engineering student in Computer Science
+              and Networks at EMSI Casablanca. I'm seeking my first
+              professional opportunity as a Full Stack Developer. My internships
+              allowed me to build several web projects using Java/Angular and
+              the MERN stack, with secure backend integration and reactive
+              frontend interfaces.
+            </Div>
 
-                </Div>
-                {/* PARAGRAPH END */}
+            <Div className="max-w-[700px] text-[16px] md:text-[18px] leading-[28px] mb-6">
+              I’ve worked on an e-commerce site in packaging, budget
+              management tools for construction, and contributed to a high-end
+              eSport experience. I’m passionate about building impactful,
+              secure, and efficient web solutions.
+            </Div>
 
-                {/* PARAGRAPH START */}
-                <Div className="max-w-[759px] 2xl:max-w-[959px] text-[16px] 2xl:text-[20px] leading-[24px] 2xl:leading-[32px] mb-[20px] md:mb-[30px] 2xl:mb-[50px] relative">
-                I have completed my Bachelor's degree in Software Engineering from FAST National University of Computer and Emerging Sciences, Faisalabad, Pakistan. Throughout my academic journey, I have gained valuable knowledge and experience in areas such as software design, agile methodologies, and user experience (UX) design. To stay updated with the latest trends and technologies in the field, I actively participate in seminars and workshops, including the International Conference of Industrial Technologies (ICIT'22) and Technolangs IEEE Conference'22.
+            <Div className="text-[16px] md:text-[18px] leading-[28px]">
+              🚀 Tech Stack: React.js, Node.js, Express, MongoDB, Spring Boot,
+              MySQL, Tailwind, Angular <br />
+              💼 Internships at ARK-X, Yousra Litajhiz, Hakam Gaming <br />
+              📍 Based in Casablanca, Morocco
+            </Div>
+          </div>
 
-                </Div>
-                {/* PARAGRAPH END */}
-
-                {/* PARAGRAPH START */}
-                <Div className="max-w-[759px] 2xl:max-w-[959px] text-[16px] 2xl:text-[20px] leading-[24px] 2xl:leading-[32px] relative">
-                Throughout my career, I've had the privilege of working with diverse and talented teams, which has exposed me to a wide range of challenges and opportunities for learning. Each project has been a stepping stone that has honed my skills and equipped me with the knowledge to tackle complex problems head-on.
-                </Div>
-                {/* PARAGRAPH END */}
-            </Wrapper>
+          {/* RIGHT IMAGE SIDE */}
+          <div className="flex-1 flex justify-center">
+            <img
+              src={profilePic}
+              alt="Chaimaa Said profile"
+              className="w-[250px] md:w-[350px] rounded-2xl shadow-xl object-cover"
+            />
+          </div>
         </div>
-    );
+      </Wrapper>
+    </div>
+  );
 };
 
 export default AboutMe;

@@ -3,196 +3,122 @@ import { motion } from "framer-motion";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import Wrapper from "./Wrapper";
-import man from "../assets/rizwan.png";
+import manImage from "../assets/rizwan.png";
 import externalLinkIcon from "../assets/external-link-icon.png";
-import gmailIcon from "../assets/email-icon.png";
+import logoIcon from "../assets/logo.png";
 import { scrollTo } from "../helper";
 import { useFollowPointer } from "./useFollowPointer";
 
+const navLinks = [
+  { label: "About me", section: "about" },
+  { label: "Skills", section: "skills" },
+  { label: "Work", section: "work" },
+  { label: "Contact", section: "contact" },
+];
+
+const socialLinks = [
+  { href: "https://www.linkedin.com/in/muhammad-rizwann/", icon: "linkedin" },
+  { href: "https://github.com/Rizwan0994/", icon: "github" },
+  { href: "https://twitter.com/midstain/", icon: "twitter" },
+];
+
 const HeroBanner = () => {
-    const ref = useRef(null);
-    const { x, y } = useFollowPointer(ref);
-    const socialIconsStyle = {
-        position: 'fixed',
-        right: '20px',
-        top: '50%',
-        transform: 'translateY(-50%)',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-end',
-      };
-    
-      const iconStyle = {
-        margin: '10px',
-        fontSize: '24px',
-        color: '#333',
-      };
-    return (
-        <div
-            id="hero"
-            className="w-full h-[100vh] relative bg-[#111111] overflow-hidden"
+  const pointerRef = useRef(null);
+  const { x, y } = useFollowPointer(pointerRef);
+
+  return (
+    <section
+      id="hero"
+      className="relative w-full h-screen bg-[#111111] overflow-hidden text-white"
+    >
+      {/* Background Animations */}
+      <motion.span
+        ref={pointerRef}
+        animate={{ x, y }}
+        className="hidden md:block sec-1-bg-gradient-1-desktop absolute md:w-[1120px] 2xl:w-[1420px] md:h-[1119px] 2xl:h-[1419px] md:left-[1000px] 2xl:left-[1309px] -top-[709px]"
+      />
+      <span className="hidden md:block sec-1-bg-gradient-2-desktop absolute md:w-[1120px] 2xl:w-[1420px] md:h-[1119px] 2xl:h-[1419px] left-[105px] md:top-[500px] 2xl:top-[672px]" />
+      <span className="md:hidden sec-1-bg-gradient-1-mobile absolute w-[212px] h-[211px] left-[285px] -top-[25px]" />
+      <span className="md:hidden sec-1-bg-gradient-2-mobile absolute w-[636px] h-[635px] -left-[334px] top-[672px]" />
+
+      <Wrapper>
+        {/* Navbar */}
+        <motion.nav
+          className="hidden md:flex items-center justify-between mt-[15px] relative"
+          initial={{ y: -200, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.25 }}
         >
-            {/* BACKGROUND ELEMENTS FOR DESKTOP START */}
-            <motion.span
-                ref={ref}
-                animate={{ x, y }}
-                className="hidden md:block sec-1-bg-gradient-1-desktop md:w-[1120px] 2xl:w-[1420px] md:h-[1119px] 2xl:h-[1419px] absolute md:left-[1000px] 2xl:left-[1309px] -top-[709px]"
-            />
-            <span className="hidden md:block sec-1-bg-gradient-2-desktop md:w-[1120px] 2xl:w-[1420px] md:h-[1119px] 2xl:h-[1419px] absolute left-[105px] top-[672px] md:top-[500px] 2xl:top-[672px]" />
-            {/* BACKGROUND ELEMENTS FOR DESKTOP END */}
+          <div className="flex items-center gap-2">
+            <div className="w-9 h-9 rounded-full flex justify-center items-center bg-white">
+              <img src={logoIcon} alt="logo" className="w-4" />
+            </div>
+            <span className="font-semibold">Chaimaa Said</span>
+          </div>
 
-            {/* BACKGROUND ELEMENTS FOR DESKTOP START */}
-            <span className="md:hidden sec-1-bg-gradient-1-mobile absolute w-[212px] h-[211px] left-[285px] -top-[25px]" />
-            <span className="md:hidden sec-1-bg-gradient-2-mobile absolute w-[636px] h-[635px] -left-[334px] top-[672px]" />
-            {/* BACKGROUND ELEMENTS FOR DESKTOP END */}
+          <ul className="flex 2xl:text-lg">
+            {navLinks.map(({ label, section }) => (
+              <li
+                key={section}
+                onClick={() => scrollTo(section)}
+                className="cursor-pointer px-5 py-2 hover:bg-slate-900 rounded-lg transition active:scale-90"
+              >
+                {label}
+              </li>
+            ))}
+          </ul>
+        </motion.nav>
 
-            <Wrapper>
-                {/* NAVBAR START */}
-                <motion.div
-                    className="hidden md:flex items-center justify-between mt-[15px] 2xl:mt-[15px] relative"
-                    initial={{ y: -200, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.25 }}
-                >
-                    <div className="flex items-center gap-[6px]">
-                        <div className="w-[35px] h-[35px] rounded-full bg-[#252525] flex justify-center items-center">
-                            <img src={gmailIcon} alt="" className="w-[18px]" />
-                        </div>
-                        <div>muhammadrizwanse23@gmail.com</div>
-                    </div>
-                    <ul className="flex 2xl:text-[20px]">
-                        <li
-                            className="cursor-pointer px-5 py-2 hover:bg-slate-900 transition active:scale-90 rounded-lg"
-                            onClick={() => scrollTo("about")}
-                        >
-                            About me
-                        </li>
-                        <li
-                            className="cursor-pointer px-5 py-2 hover:bg-slate-900 transition active:scale-90 rounded-lg"
-                            onClick={() => scrollTo("skills")}
-                        >
-                            Skills
-                        </li>
-                        <li
-                            className="cursor-pointer px-5 py-2 hover:bg-slate-900 transition active:scale-90 rounded-lg"
-                            onClick={() => scrollTo("work")}
-                        >
-                            Work
-                        </li>
-                        <li
-                            className="cursor-pointer px-5 py-2 hover:bg-slate-900 transition active:scale-90 rounded-lg"
-                            onClick={() => scrollTo("contact")}
-                        >
-                            Contact
-                        </li>
-                    </ul>
-                </motion.div>
-                {/* NAVBAR END */}
+        {/* Main Content */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 mt-8 px-4 h-[calc(100vh-100px)] max-w-7xl mx-auto">
+          {/* Text Block */}
+          <motion.div
+            className="flex-1 flex flex-col justify-center text-left"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h1 className="text-4xl md:text-7xl font-oswald uppercase leading-tight">
+              I Am A Software <br /> Engineer
+            </h1>
+          </motion.div>
 
-                {/* BIG HEADING START */}
-                <motion.div
-                    className="flex justify-center text-center mt-14 mb-10 relative"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <h1 className="text-[50px] md:text-[120px] 2xl:text-[120px] leading-[50px] md:leading-[125px]  2xl:leading-[140px] font-oswald uppercase">
-                        I Am A Software
-                        <br className="invisible md:visible" />
-                        Engineer
-                    </h1>
-                </motion.div>
-                {/* BIG HEADING END */}
-
-                {/* INTRO START */}
-                <motion.div
-                    className="flex flex-col mb-10 text-center md:text-left text-[16px] md:text-[18px] leading-[24px] md:leading-[28px] relative"
-                    initial={{ y: 300, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.25 }}
-                >
-                    <div className="font-light mb-4">
-                        👋 Hi, I Am{" "}
-                        <span className="font-semibold">Muhammad Rizwan,</span>
-                    </div>
-                    <div className="max-w-[510px]">
-                    a passionate and results-driven software engineer with a keen eye for detail and a strong commitment to delivering high-quality problem sloution.
-                    </div>
-                </motion.div>
-                {/* INTRO END */}
-
-                {/* NUMBER BLOCK START */}
-    
-                <motion.div
-                    className="hidden md:flex gap-8 relative z-10"
-                    initial={{ y: 300, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.25 }}
-                >
-                    {/* START */}
-                    <div className="flex items-center gap-3">
-                        <div className="text-[80px] font-light">25+</div>
-                        <div className="leading-[22px]">
-                            SUCCESSFULLY
-                            <br />
-                            COMPLETED
-                            <br />
-                            PROJECTS
-                        </div>
-                    </div>
-                    {/* END */}
-
-                    {/* START */}
-                    <div className="flex items-center gap-3">
-                        <div className="text-[80px] font-light">2+</div>
-                        <div className="leading-[22px]">
-                            YEARS OF
-                            <br />
-                            EXPERIENCE
-                        </div>
-                    </div>
-                    {/* END */}
-                </motion.div>
-                {/* NUMBER BLOCK END */}
-
-                {/* PERSON BLOCK START */}
-                <motion.div
-                    className="w-[300px] md:w-[360px] 2xl:w-[350px] absolute bottom-0 left-[50%] -translate-x-1/2"
-                    initial={{ y: 200, x: "-50%" }}
-                    animate={{ y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <img src={man} alt="" />
-
-                    {/* HIRE ME BUTTON START */}
-                    <div
-                        className="absolute top-[140px] -right-10 2xl:top-[240px] 2xl:-right-10 w-[140px] h-[140px] rounded-full bg-white/[0.7] flex flex-col justify-center items-center gap-2 backdrop-blur-sm cursor-pointer transition-transform scale-[0.65] md:scale-100 active:scale-[0.55] md:active:scale-90"
-                        onClick={() => scrollTo("contact")}
-                    >
-                        <img
-                            src={externalLinkIcon}
-                            alt=""
-                            className="w-[15px]"
-                        />
-                        <div className="text-black">Hire Me</div>
-                    </div>
-                    {/* HIRE ME BUTTON END */}
-                </motion.div>
-                {/* PERSON BLOCK END */}
-            </Wrapper>
-            <div style={socialIconsStyle}>
-        <a href="https://www.linkedin.com/in/muhammad-rizwann/" style={iconStyle}>
-          <i className="fab fa-linkedin"></i>
-        </a>
-        <a href="https://github.com/Rizwan0994/" style={iconStyle}>
-          <i className="fab fa-github"></i>
-        </a>
-        <a href="https://twitter.com/midstain/" style={iconStyle}>
-          <i className="fab fa-twitter"></i>
-        </a>
-      </div>
+          {/* Profile + Button */}
+          <motion.div
+            className="flex-1 flex flex-col justify-center items-center relative"
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <img src={manImage} alt="Profile" className="w-[250px] md:w-[350px]" />
+            <button
+              onClick={() => scrollTo("contact")}
+              className="mt-6 w-[120px] h-[120px] rounded-full bg-white/70 backdrop-blur-sm flex flex-col items-center justify-center gap-2 text-black font-semibold transition-transform hover:scale-105 active:scale-95"
+            >
+              <img src={externalLinkIcon} alt="External Link" className="w-[15px]" />
+              Hire Me
+            </button>
+          </motion.div>
         </div>
-    );
+      </Wrapper>
+
+      {/* Social Icons */}
+      <div className="fixed right-5 top-1/2 -translate-y-1/2 flex flex-col items-end space-y-4">
+        {socialLinks.map(({ href, icon }) => (
+          <a
+            key={icon}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={icon}
+            className="text-white text-xl hover:text-blue-400 transition"
+          >
+            <i className={`fab fa-${icon}`} />
+          </a>
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default HeroBanner;

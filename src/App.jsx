@@ -11,7 +11,6 @@ function App() {
             <HeroBanner />
             <AboutMe />
             <Skills />
-            <Testimonials />
             <Contact />
             <Footer />
         </div>
